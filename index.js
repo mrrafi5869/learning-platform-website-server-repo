@@ -15,6 +15,12 @@ app.get("/course", (req, res) => {
     res.send(courses);
 })
 
+app.get("/course/:id", (req, res) => {
+    const id = req.params.id;
+    const courseDetails = courses.find(course => course.id == id);
+    res.send(courseDetails);
+})
+
 app.listen(port, () => {
     console.log("Dragon News Server running on Port", port)
 })
